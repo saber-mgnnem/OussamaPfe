@@ -117,7 +117,10 @@ Route::middleware(['auth:sanctum','isEtudiant'])->group( function(){
     Route::get('Etudiant_get_formation',[FormationController::class, 'index']);
 
 
+
     Route::post('Etudiant_iscription',[AttributionController::class, 'store']);
+    Route::get('Etudiant_get_inscription_formation/{id}',[AttributionController::class, 'getInscription']);
+    Route::get('Etudiant_Cours/{id}',[CourController::class, 'getCourParFormationId']);
 
 
 });

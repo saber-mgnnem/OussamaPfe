@@ -56,13 +56,13 @@ class AttributionController extends Controller
      }
 
 
-public function  getInscriptionParId($id){
-    $attribution = Attribution::with([ 'student' => function ($query) {
-        $query->select('id', 'fisrtname','lastname','email');
-    }])->where('formation_id', $id)->get();
+public function  getInscription($id){
+    $formations = Attribution::with([ 'formation' => function ($query) {
+        $query->select('id', 'title',);
+    }])->where('student_id', $id)->get();
         return response()->json([
             'status'=>200,
-            'Inscription'=>$attribution
+            'formations'=>$formations
         ]);
 
 

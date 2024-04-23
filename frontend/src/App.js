@@ -42,8 +42,10 @@ import EtudiantCertificate from "./EnseignantPage/components/certificate/listeEu
 
 import EtudiantProfile from "./EtudiantPage/components/profil/Profile"
 import FormationIndex from "./EtudiantPage/components/ListeDeFormation/Index"
+import VotreCours from "./EtudiantPage/components/votreCours/Index"
 import CertificateIndex from "./EtudiantPage/components/certificate/Index"
 import Certife from "./EnseignantPage/components/certificate/Certife"
+import ListeCoours from "./EtudiantPage/components/votreCours/ListeCoours"
 
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -117,8 +119,9 @@ function App() {
               <Route path="/eleve/profile" element={< EtudiantProfile/>} />
               <Route path="/eleve/liste_formation" element={< FormationIndex/>} />
               <Route path="/eleve/liste_certificate" element={< CertificateIndex/>} />
+              <Route path="/eleve/votre_cours" element={< VotreCours/>} />
+              <Route path="/eleve/listeCours/:id" element={< ListeCoours/>} />
 
-              
 
               </Route>
 

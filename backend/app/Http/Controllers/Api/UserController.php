@@ -14,22 +14,6 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
 
-    public function getEnseignantParEleve($identifiant){
-        $role = "Eleves";
-        $fils = User::where("role",$role)->where("identifiant_user",$identifiant)->first();
-        $Attribution = Attribution::where('student_id',$fils->id)->first();
-        $inscrireEnseignant = InscriptionEnseignant::with([
-            'enseignant' => function ($query) {
-                $query->select('id', 'name',);
-            }
-        ])->where('classe_id',$Attribution->classe_id)->get();
-        return response()->json([
-         'status'=>200,
-         'enseignant'=>$inscrireEnseignant
-
-
-        ]);
-    }
     public function index(){
         $enseignant= User::where('role','Enseignant')->get();
         $etudiant= User::where('role','Etudiant')->get();

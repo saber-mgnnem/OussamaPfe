@@ -14,7 +14,7 @@ class CourController extends Controller
 
     public function getCourParFormationId ($id ){
 
-        $Cour = Cour::where('Formation_id',$id)->get();
+        $Cour = Cour::where('formation_id',$id)->get();
         return response()->json([
             'status'=>200,
             'Cour'=> $Cour
@@ -54,9 +54,9 @@ class CourController extends Controller
         if ($request->hasFile('file')){
 
             $file = $request->file('file');
-            $destinationPath = 'D:\pfeyousef\frontend\src\pdf';
-            $fileName = $file->getClientOriginalName();
-            $file->move($destinationPath, $fileName);
+            $extension = $file->getClientOriginalExtension();
+            $fileName = time().'.'.$extension;
+            $file->move('uploads/Cours/',$fileName);
             $Cour->file =$fileName;
         }else {
             return response()->json([

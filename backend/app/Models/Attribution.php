@@ -16,6 +16,9 @@ class Attribution extends Model
     public function student(){
     return $this->belongsTo(User::class ,'student_id','id');
 }
+public function formation(){
+    return $this->belongsTo(Formation::class ,'formation_id','id');
+}
 
 
 
