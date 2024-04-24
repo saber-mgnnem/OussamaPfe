@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\CertifcateController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\QuizController;
@@ -98,6 +99,8 @@ Route::middleware(['auth:sanctum','isEnseignant'])->group( function(){
 
     Route::get('inscription_student/{id}',[AttributionController::class, 'getInscriptionParId']);
     Route::put('/update_student_status/{id}', [AttributionController::class, 'updateStatus']);
+    Route::post('/add_certificate', [CertifcateController::class, 'store']);
+
 
 });
 
@@ -115,12 +118,15 @@ Route::middleware(['auth:sanctum','isEtudiant'])->group( function(){
     Route::post('Etudiant_Update_profile/{id}',[UserController::class, 'Update']);
     Route::put('Etudiant_updatePassword/{id}',[UserController::class, 'updatePassword']);
     Route::get('Etudiant_get_formation',[FormationController::class, 'index']);
+    Route::get('Etudiant_get_certificate/{id}',[CertifcateController::class, 'getparEtudiant']);
 
 
 
     Route::post('Etudiant_iscription',[AttributionController::class, 'store']);
     Route::get('Etudiant_get_inscription_formation/{id}',[AttributionController::class, 'getInscription']);
     Route::get('Etudiant_Cours/{id}',[CourController::class, 'getCourParFormationId']);
+    Route::get('Etudiant_qcm/{id}',[QuizController::class, 'getParFormationId']);
+    Route::get('get_question_parQcmId/{id}',[QuestionController::class, 'get']);
 
 
 });

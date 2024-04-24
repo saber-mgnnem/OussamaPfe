@@ -32,6 +32,20 @@ class QuizController extends Controller
           ]);
         }
 
+        public function getParFormationId($id)
+        {
+          $quizzes = Quiz::with([
+              'formation' => function ($query) {
+                  $query->select('id','title');
+              }
+
+          ])->where('formation_id',$id)->get();
+            return response()->json([
+                'status'=>200,
+                'qcm'=>$quizzes
+
+            ]);
+          }
     // Show - Retrieve a single quiz by ID
     public function show($id)
     {

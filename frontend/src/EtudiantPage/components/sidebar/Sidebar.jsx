@@ -44,13 +44,14 @@ const Sidebar = () => {
             </li>
             <li className="nav-item" style={{display: 'flex', alignItems: 'center'}}>
               <Link to="/eleve/votre_cours" className="nav-link" style={{display: 'flex', alignItems: 'center'}}>
-                <FaCertificate className="nav-icon" />
+              <FaListAlt className="nav-icon" />
                 <p style={{marginBottom: 9, marginLeft: 5}}>Votre Cours</p>
               </Link>
             </li>
             <li className="nav-item" style={{display: 'flex', alignItems: 'center'}}>
-              <Link to="/eleve/Certificate_liste" className="nav-link" style={{display: 'flex', alignItems: 'center'}}>
-                <FaCertificate className="nav-icon" />
+              <Link to="/eleve/liste_certificate" className="nav-link" style={{display: 'flex', alignItems: 'center'}}>
+              <FaCertificate className="nav-icon" />
+
                 <p style={{marginBottom: 9, marginLeft: 5}}>Votre Certificate</p>
               </Link>
             </li>

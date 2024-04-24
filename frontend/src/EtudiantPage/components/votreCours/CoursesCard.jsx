@@ -50,7 +50,7 @@ const CoursesCard = () => {
                 {/* Rendering viewFormation data if it's an array */}
                 <React.Fragment>
                   <h1>{formation.title}</h1>
-                  <Link to={`/eleve/listeCours/${formation.id}`} className='voir-Btn' type="submit" color="secondary" variant="contained">
+                  <Link to={`/eleve/listeCours/${formation.formation.id}`} className='voir-Btn' type="submit" color="secondary" variant="contained">
                     <h6>Commencer</h6>
                   </Link>
                 </React.Fragment>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaCertificate,FaChartLine, FaUserCircle, FaUsers, FaPlusCircle, FaListAlt, FaGraduationCap, FaSignOutAlt } from 'react-icons/fa';
+import { FaCertificate,FaChartLine, FaUserCircle, FaUsers, FaPlusCircle, FaListAlt, FaGraduationCap } from 'react-icons/fa';
 import logo from "../../../assets/logo.png"
 import { useState,useEffect } from 'react';
 const Sidebar = () => {

@@ -59,7 +59,7 @@ class AttributionController extends Controller
 public function  getInscription($id){
     $formations = Attribution::with([ 'formation' => function ($query) {
         $query->select('id', 'title',);
-    }])->where('student_id', $id)->get();
+    }])->where('student_id', $id)->where('status', '1')->get();
         return response()->json([
             'status'=>200,
             'formations'=>$formations
@@ -68,7 +68,14 @@ public function  getInscription($id){
 
 
 }
-
+public function  getInscriptionParId($id){
+    $attribution = Attribution::with([ 'student' => function ($query) {
+        $query->select('id', 'fisrtname','lastname','email');
+    }])->where('formation_id', $id)->get();
+        return response()->json([
+            'status'=>200,
+            'Inscription'=>$attribution
+        ]);}
 
 public function update (Request $request , $id ){
     $user = User::where('identifiant_user',$request->input('identifiant'))->first();

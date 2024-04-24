@@ -46,7 +46,7 @@ import VotreCours from "./EtudiantPage/components/votreCours/Index"
 import CertificateIndex from "./EtudiantPage/components/certificate/Index"
 import Certife from "./EnseignantPage/components/certificate/Certife"
 import ListeCoours from "./EtudiantPage/components/votreCours/ListeCoours"
-
+import TestQcm from "./EtudiantPage/components/votreCours/TestQcm"
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
@@ -121,6 +121,7 @@ function App() {
               <Route path="/eleve/liste_certificate" element={< CertificateIndex/>} />
               <Route path="/eleve/votre_cours" element={< VotreCours/>} />
               <Route path="/eleve/listeCours/:id" element={< ListeCoours/>} />
+              <Route path="/eleve/test_qcm/:id" element={< TestQcm/>} />
 
 
               </Route>
